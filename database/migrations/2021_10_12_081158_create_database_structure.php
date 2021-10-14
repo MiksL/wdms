@@ -93,6 +93,7 @@ class CreateDatabaseStructure extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('shipments_to_store');
         Schema::dropIfExists('store_stock');
         Schema::dropIfExists('warehouse_stock');
@@ -101,5 +102,6 @@ class CreateDatabaseStructure extends Migration
         Schema::dropIfExists('warehouse');
         Schema::dropIfExists('store');
         Schema::dropIfExists('products');
+        Schema::enableForeignKeyConstraints();
     }
 }
