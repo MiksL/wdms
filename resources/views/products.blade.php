@@ -3,7 +3,9 @@
         <table class="table-fixed w-full text-center">
             <thead>
                 <tr>
-                <th class="w-1/5">@sortablelink('id', 'ID')</th>
+                <th class="w-1/5">
+                    @sortablelink('id', 'ID')
+                </th>
                 <th class="w-1/5">@sortablelink('name', 'Name')</th>
                 <th class="w-1/">@sortablelink('price', 'Price')</th>
                 <th class="w-1/5">@sortablelink('size', 'Size')</th>
@@ -22,6 +24,6 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="flex flex-row justify-center items-center">{{ $products->links() }}</div>
+        {!! $products->appends(\Request::except('page'))->render() !!}
     </div>
 </x-app-layout>
