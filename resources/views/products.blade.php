@@ -1,13 +1,13 @@
 <x-app-layout>
-    <div class="w-full">
+    <div class="w-full content-center">
         <table class="table-fixed w-full text-center">
             <thead>
                 <tr>
-                <th class="w-1/5 ...">ID</th>
-                <th class="w-1/5 ...">Name</th>
-                <th class="w-1/5 ...">Price</th>
-                <th class="w-1/5 ...">Size</th>
-                <th class="w-1/5 ...">Weight</th>
+                <th class="w-1/5">@sortablelink('id', 'ID')</th>
+                <th class="w-1/5">@sortablelink('name', 'Name')</th>
+                <th class="w-1/">@sortablelink('price', 'Price')</th>
+                <th class="w-1/5">@sortablelink('size', 'Size')</th>
+                <th class="w-1/5">@sortablelink('weight', 'Weight')</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,5 +22,6 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="flex flex-row justify-center items-center">{{ $products->links() }}</div>
     </div>
 </x-app-layout>

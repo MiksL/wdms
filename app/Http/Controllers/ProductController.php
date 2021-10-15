@@ -10,9 +10,10 @@ class ProductController extends Controller
 {
     public function products()
     {
-        $products = DB::table('products')->get();
+        // Add PRODUCT model
+        $products = DB::table('products')->paginate(15);
         return view('products', [
-            'products' => $products
+            'products' => $products,
         ]);
     }
 }
