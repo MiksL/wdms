@@ -53,6 +53,7 @@
         </div>
       
         <div id="RecentlyMovedProducts" class="w-full overflow-y-auto sm:my-1 sm:px-1 sm:w-1/2 md:my-1 md:px-1 md:w-1/2 lg:my-3 lg:px-3 lg:w-1/2 xl:my-3 xl:px-3 xl:w-1/2">
+            <h2 class="w-full text-center">Recently moved products</h2>
             <table class="w-full">
                 <thead>
                   <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
