@@ -17,14 +17,8 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/warehouses', function () {
-    return view('warehouses');
-})->middleware(['auth'])->name('warehouses');
-
-Route::get('/stores', function () {
-    return view('stores');
-})->middleware(['auth'])->name('stores');
-
 Route::get('/products', [\App\Http\Controllers\ProductController::class, 'products'])->middleware(['auth'])->name('products');
+Route::get('/warehouses', [\App\Http\Controllers\WarehouseController::class, 'warehouses'])->middleware(['auth'])->name('warehouses');
+Route::get('/stores', [\App\Http\Controllers\StoreController::class, 'stores'])->middleware(['auth'])->name('stores');
 
 require __DIR__.'/auth.php';

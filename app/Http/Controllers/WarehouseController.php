@@ -5,15 +5,15 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\DB;
-use App\Models\Product;
+use App\Models\Warehouse;
 
-class ProductController extends Controller
+class WarehouseController extends Controller
 {
-    public function products(Product $product)
+    public function warehouses(Warehouse $warehouse)
     {
-        $products = $product->sortable()->paginate(15);
-        return view('products', [
-            'products' => $products,
+        $warehouses = $warehouse->sortable()->paginate(15);
+        return view('warehouses', [
+            'warehouses' => $warehouses,
         ]);
     }
 }
