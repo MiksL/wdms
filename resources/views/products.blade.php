@@ -1,29 +1,29 @@
 <x-app-layout>
-    <div class="w-full content-center">
-        <table class="table-fixed w-full text-center">
-            <thead>
+    <div class="w-full grid place-items-center">
+        <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <thead class="bg-gray-50">
                 <tr>
-                <th class="w-1/5">
-                    @sortablelink('id', 'ID')
-                </th>
-                <th class="w-1/5">@sortablelink('name', 'Name')</th>
-                <th class="w-1/">@sortablelink('price', 'Price')</th>
-                <th class="w-1/5">@sortablelink('size', 'Size')</th>
-                <th class="w-1/5">@sortablelink('weight', 'Weight')</th>
+                    <th class="text-gray-500">@sortablelink('id', 'ID')</th>
+                    <th class="text-gray-500">@sortablelink('name', 'Name')</th>
+                    <th class="text-gray-500">@sortablelink('price', 'Price')</th>
+                    <th class="text-gray-500">@sortablelink('size', 'Size')</th>
+                    <th class="text-gray-500">@sortablelink('weight', 'Weight')</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="divide-y divide-gray-200">
                 @foreach ($products as $product)
                     <tr>
-                        <td>{{ $product->id }}</td>
-                        <td>{{ $product->name }}</td>
-                        <td>$ {{ $product->price }}</td>
-                        <td>{{ $product->size }}</td>
-                        <td>{{ $product->weight }} kg</td>
+                        <td class="py-1">{{ $product->id }}</td>
+                        <td class="py-1">{{ $product->name }}</td>
+                        <td class="py-1">$ {{ $product->price }}</td>
+                        <td class="py-1">{{ $product->size }}</td>
+                        <td class="py-1">{{ $product->weight }} kg</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        {!! $products->appends(\Request::except('page'))->render() !!}
+        <div class="w-7/12 my-3">
+            {!! $products->appends(\Request::except('page'))->render() !!}
+        </div>
     </div>
 </x-app-layout>

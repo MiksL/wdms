@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function products(Product $product)
     {
-        $products = $product->sortable()->paginate(15);
+        $products = $product->sortable('id')->paginate(15);
         return view('products', [
             'products' => $products,
         ]);
