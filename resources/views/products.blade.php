@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="w-full grid place-items-center">
-        <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-            <thead class="bg-gray-50 text-xs uppercase h-6">
+    <div class="w-full grid place-items-center dark:bg-background-800">
+        <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <thead class="bg-gray-50 dark:bg-gray-700 text-xs uppercase h-6">
                 <tr>
                     <th class="text-gray-500">@sortablelink('id', 'ID')</th>
                     <th class="text-gray-500">@sortablelink('name', 'Name')</th>
@@ -10,7 +10,7 @@
                     <th class="text-gray-500">@sortablelink('weight', 'Weight')</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
                 @foreach ($products as $product)
                     <tr>
                         <td class="py-1">{{ $product->id }}</td>
