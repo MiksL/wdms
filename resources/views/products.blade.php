@@ -1,3 +1,4 @@
+@section('title', 'Products')
 <x-app-layout>
     <div class="w-full grid place-items-center dark:bg-background-800">
         <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">

@@ -1,3 +1,4 @@
+@section('title', 'Warehouses')
 <x-app-layout>
     <div class="flex flex-wrap -mx-4 overflow-hidden sm:-mx-4 md:-mx-3 lg:-mx-3 xl:-mx-2">
         @foreach ($warehouses as $warehouse)

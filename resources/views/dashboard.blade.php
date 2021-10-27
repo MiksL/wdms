@@ -1,3 +1,4 @@
+@section('title', 'Dashboard')
 <x-app-layout>
     <div class="flex flex-wrap overflow-hidden">
         <div id="MostProductsSold" class="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-1 md:px-1 md:w-1/2 lg:my-3 lg:px-3 lg:w-1/2 xl:my-3 xl:px-3 xl:w-1/2">
@@ -31,14 +32,9 @@
                     }]
                 },
                 options: {
+                    responsive: true,
                     plugins: {
-                        title: {
-                            display: true,
-                            text: 'Best Selling Products',
-                            font: {
-                                size: 20
-                            }
-                        }
+
                     },
 
                     scales: {

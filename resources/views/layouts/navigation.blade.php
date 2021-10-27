@@ -2,20 +2,20 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">
-            <h2 class="text-base text-gray-500 font-semibold text-xl leading-tight">
-                {{ __('Dashboard') }}
-            </h2>
+            <a href="{{ route('dashboard') }}" class="text-base text-gray-500 dark:text-gray-200 font-semibold text-xl leading-tight">
+                @yield('title')
+            </a>
         </div>
         <nav class="hidden md:flex space-x-10">
-            <a href="{{ route('warehouses') }}" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+            <a href="{{ route('warehouses') }}" class="text-base font-medium text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400">
                 Warehouses
             </a>
             
-            <a href="{{ route('stores') }}" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+            <a href="{{ route('stores') }}" class="text-base font-medium text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400">
                 Stores
             </a>
 
-            <a href="{{ route('products') }}" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200">
+            <a href="{{ route('products') }}" class="text-base font-medium text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400">
                 Products
             </a>
         </nav>
