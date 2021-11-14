@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-    darkMode: 'media',
+    darkMode: 'class',
 
     purge: [
         './resources/**/*.blade.php',
@@ -17,7 +17,7 @@ module.exports = {
             },
 
             colors: {
-                background: colors.blueGray,
+                orange: colors.orange,
             },
         },
     },
