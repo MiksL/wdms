@@ -9,7 +9,7 @@ use App\Models\Store;
 
 class StoreController extends Controller
 {
-    public function Stores(Store $store)
+    public function index(Store $store)
     {
         $stores = $store->sortable()->paginate(15);
         return view('Stores', [

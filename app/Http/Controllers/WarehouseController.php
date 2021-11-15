@@ -9,11 +9,20 @@ use App\Models\Warehouse;
 
 class WarehouseController extends Controller
 {
-    public function warehouses(Warehouse $warehouse)
+    public function index(Warehouse $warehouse)
     {
         $warehouses = $warehouse->sortable()->paginate(15);
         return view('warehouses', [
             'warehouses' => $warehouses,
+        ]);
+    }
+
+    public function show($id)
+    {
+        $getWarehouse = Warehouse::where('id', $id)->get();
+
+        return view('warehouses/show-warehouse', [
+            'warehouse' => $getWarehouse,
         ]);
     }
 }

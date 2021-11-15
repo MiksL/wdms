@@ -1,10 +1,15 @@
 @section('title', 'Warehouses')
 <x-app-layout>
-    <div class="flex flex-wrap -mx-4 overflow-hidden sm:-mx-4 md:-mx-3 lg:-mx-3 xl:-mx-2">
-        @foreach ($warehouses as $warehouse)
-            <div class="my-4 px-4 w-full overflow-hidden sm:my-4 sm:px-4 md:my-3 md:px-3 md:w-1/2 lg:my-3 lg:px-3 lg:w-1/2 xl:my-2 xl:px-2 xl:w-1/2">
-
-            </div>
-        @endforeach
-      </div>
+    <div class="w-full grid place-items-center">
+        <div class="w-4/5 grid grid-cols-2 place-items-center gap-4 my-4 mx-4">
+            @foreach ($warehouses as $warehouse)
+                <a href="{{ route('warehouses.show', $warehouse->id) }}" class="w-full border-2 border-gray-300 dark:border-gray-500 rounded-xl">
+                    <div class="mx-3 my-3">
+                        <div>{{ $warehouse->name }}</div>
+                        <div>{{ $warehouse->location }}</div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </div>
 </x-app-layout>
