@@ -24,7 +24,9 @@
     </head>
     <body class="font-sans antialiased dark:text-gray-200">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-800">
-            @include('layouts.navigation')
+            @if(Auth::check())
+                @include('layouts.navigation')
+            @endif
 
             <!-- Page Content -->
             <main>

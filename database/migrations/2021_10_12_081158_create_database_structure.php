@@ -16,6 +16,7 @@ class CreateDatabaseStructure extends Migration
         Schema::create('warehouse', function (Blueprint $table) {
             $table->id();
             $table->string('location', 100);
+            $table->timestamps();
         });
 
         Schema::create('store', function (Blueprint $table) {
@@ -23,6 +24,7 @@ class CreateDatabaseStructure extends Migration
             $table->string('name', 30);
             $table->string('location', 100);
             $table->unsignedBigInteger('supplying_warehouse_id');
+            $table->timestamps();
 
             $table->foreign('supplying_warehouse_id')->references('id')->on('warehouse');
         });
@@ -33,12 +35,14 @@ class CreateDatabaseStructure extends Migration
             $table->double('price', 8, 2);
             $table->string('size', 11);
             $table->double('weight', 5, 2);
+            $table->timestamps();
         });
 
         Schema::create('warehouse_managers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('warehouse_id');
             $table->unsignedBigInteger('manager_id');
+            $table->timestamps();
 
             $table->foreign('warehouse_id')->references('id')->on('warehouse');
             $table->foreign('manager_id')->references('id')->on('users');
@@ -48,6 +52,7 @@ class CreateDatabaseStructure extends Migration
             $table->id();
             $table->unsignedBigInteger('store_id');
             $table->unsignedBigInteger('manager_id');
+            $table->timestamps();
 
             $table->foreign('store_id')->references('id')->on('store');
             $table->foreign('manager_id')->references('id')->on('users');
@@ -58,6 +63,7 @@ class CreateDatabaseStructure extends Migration
             $table->unsignedBigInteger('warehouse_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('product_count');
+            $table->timestamps();
 
             $table->foreign('warehouse_id')->references('id')->on('warehouse');
             $table->foreign('product_id')->references('id')->on('products');
@@ -68,6 +74,7 @@ class CreateDatabaseStructure extends Migration
             $table->unsignedBigInteger('store_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('product_count');
+            $table->timestamps();
 
             $table->foreign('store_id')->references('id')->on('store');
             $table->foreign('product_id')->references('id')->on('products');
@@ -79,6 +86,7 @@ class CreateDatabaseStructure extends Migration
             $table->unsignedBigInteger('store_id');
             $table->unsignedBigInteger('shipped_product_id');
             $table->integer('shipped_product_count');
+            $table->timestamps();
 
             $table->foreign('warehouse_id')->references('id')->on('warehouse');
             $table->foreign('store_id')->references('id')->on('store');

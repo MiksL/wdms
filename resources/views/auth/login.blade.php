@@ -1,10 +1,7 @@
 @section('title', 'Login')
-<x-guest-layout>
+<x-app-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
         </x-slot>
 
         <!-- Session Status -->
@@ -13,7 +10,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" class="dark:text-gray-900">
             @csrf
 
             <!-- Email Address -->
@@ -54,4 +51,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-app-layout>
