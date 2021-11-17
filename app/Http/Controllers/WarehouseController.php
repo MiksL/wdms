@@ -20,9 +20,13 @@ class WarehouseController extends Controller
     public function show($id)
     {
         $getWarehouse = Warehouse::where('id', $id)->get();
+        $currentStock = DB::Table('warehouse_stock')->where('warehouse_id', $id)
+        ->join('products', 'warehouse_stock.product_id', '=', 'products.id')
+        ->paginate(15);
 
         return view('warehouses/show-warehouse', [
             'warehouse' => $getWarehouse,
+            'warehouseStock' => $currentStock
         ]);
     }
 }
