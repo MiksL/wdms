@@ -11,10 +11,7 @@ class ProductController extends Controller
 {
     public function index(Product $product)
     {
-        $products = $product->sortable('id')->paginate(15);
-        return view('products', [
-            'products' => $products,
-        ]);
+        return view('products');
     }
 }
 ?>

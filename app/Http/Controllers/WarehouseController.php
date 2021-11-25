@@ -9,12 +9,9 @@ use App\Models\Warehouse;
 
 class WarehouseController extends Controller
 {
-    public function index(Warehouse $warehouse)
+    public function index()
     {
-        $warehouses = $warehouse->sortable()->paginate(15);
-        return view('warehouses', [
-            'warehouses' => $warehouses,
-        ]);
+        return view('warehouses');
     }
 
     public function show($id)

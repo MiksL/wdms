@@ -19,8 +19,9 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script src="{{ asset('chart.js/chart.js') }}"></script>
+
+        @livewireStyles
     </head>
     <body class="font-sans antialiased dark:text-gray-200">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-800">
@@ -33,5 +34,7 @@
                 {{ $slot }}
             </main>
         </div>
+
+        @livewireScripts
     </body>
 </html>

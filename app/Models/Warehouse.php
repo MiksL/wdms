@@ -8,7 +8,6 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Warehouse extends Model
 {
-    use Sortable;
     
     protected $fillable = [
         'id',
@@ -16,7 +15,6 @@ class Warehouse extends Model
         'location'
     ];
     
-    public $sortable = ['id','name','location'];
 }
 
 
