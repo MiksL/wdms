@@ -1,5 +1,13 @@
 <x-app-layout>
-    <div class="w-full grid place-items-center">
+    <div class="w-full grid place-items-center" x-data="{ selectedTable: 0 }">
+        <div class="absolute grid align-middle z-10 right-0 text-gray-500 dark:text-gray-200 bg-gray-200 dark:bg-gray-900 rounded-l-xl">
+            <button class="m-4 hover:text-gray-900 dark:hover:text-gray-400" @click="selectedTable = 0">
+            Currently Stocked
+            </button>
+            <button class="m-4 hover:text-gray-900 dark:hover:text-gray-400" @click="selectedTable = 1">
+                Recently Moved
+            </button>
+        </div>
         @foreach($warehouse as $warehouse)
             @section('title', "$warehouse->name")
             <div class="w-4/5 grid place-items-left my-5 text-gray-500 dark:text-gray-300">
@@ -7,8 +15,8 @@
             </div>
 
             <div class="w-full grid place-items-center text-gray-500 dark:text-gray-300">
-                <div>Currently stocked products</div>
-                <div class="w-4/5 grid place-items-center dark:bg-background-800">
+                <div x-show="selectedTable === 0">Currently stocked products</div>
+                <div class="w-4/5 grid place-items-center dark:bg-background-800" x-show="selectedTable === 0">
                     <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden sm:rounded-lg">
                         <thead class="bg-gray-50 dark:bg-gray-700 text-xs uppercase h-6 w-full">
                             <tr>
@@ -35,11 +43,10 @@
                     </table>
                 </div>
 
-                
-                <div class="mt-5">
+                <div x-cloak x-show="selectedTable === 1">
                     Recently moved products
                 </div>
-                <div class="w-4/5 grid place-items-center dark:bg-background-800">
+                <div class="w-4/5 grid place-items-center dark:bg-background-800" x-cloak x-show="selectedTable === 1">
                     <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden sm:rounded-lg">
                         <thead class="bg-gray-50 dark:bg-gray-700 text-xs uppercase h-6 w-full">
                             <tr>
