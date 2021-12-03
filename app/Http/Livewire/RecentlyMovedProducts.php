@@ -10,12 +10,12 @@ class RecentlyMovedProducts extends Component
 {
     use WithPagination;
     public $searchTerm;
-    public $warehouseId = 1;
+    public $warehouseid;
 
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm.'%';
-        $recentlyMoved = DB::Table('shipments_to_store')->where('warehouse_id', 1)
+        $recentlyMoved = DB::Table('shipments_to_store')->where('warehouse_id', $this->warehouseid)
         ->join('products', 'shipments_to_store.shipped_product_id', '=', 'products.id')
         ->join('stores', 'shipments_to_store.store_id', '=', 'stores.id')
         ->select(

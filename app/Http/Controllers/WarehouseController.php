@@ -17,9 +17,11 @@ class WarehouseController extends Controller
     public function show($id)
     {
         $getWarehouse = Warehouse::where('id', $id)->get();
+        /*
         $currentStock = DB::Table('warehouse_stock')->where('warehouse_id', $id)
         ->join('products', 'warehouse_stock.product_id', '=', 'products.id')
         ->paginate(15);
+        */
         
         // $recentlyMoved = DB::Table('shipments_to_store')->where('warehouse_id', $id)
         // ->join('products', 'shipments_to_store.shipped_product_id', '=', 'products.id')
@@ -38,7 +40,7 @@ class WarehouseController extends Controller
 
         return view('warehouses/show-warehouse', [
             'warehouse' => $getWarehouse,
-            'warehouseStock' => $currentStock,
+            //'warehouseStock' => $currentStock,
             'id' => $id
             // 'recentlyMovedProducts' => $recentlyMoved
         ]);
