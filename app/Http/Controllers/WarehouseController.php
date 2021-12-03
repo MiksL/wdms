@@ -21,25 +21,26 @@ class WarehouseController extends Controller
         ->join('products', 'warehouse_stock.product_id', '=', 'products.id')
         ->paginate(15);
         
-        $recentlyMoved = DB::Table('shipments_to_store')->where('warehouse_id', $id)
-        ->join('products', 'shipments_to_store.shipped_product_id', '=', 'products.id')
-        ->join('stores', 'shipments_to_store.store_id', '=', 'stores.id')
-        ->select(
-            'shipments_to_store.id',
-            'shipments_to_store.shipped_product_id',
-            'shipments_to_store.store_id',
-            'products.name',
-            'stores.name AS store_name',
-            'products.price',
-            'products.weight',
-            'shipments_to_store.shipped_product_count'
-        )
-        ->paginate(15);
+        // $recentlyMoved = DB::Table('shipments_to_store')->where('warehouse_id', $id)
+        // ->join('products', 'shipments_to_store.shipped_product_id', '=', 'products.id')
+        // ->join('stores', 'shipments_to_store.store_id', '=', 'stores.id')
+        // ->select(
+        //     'shipments_to_store.id',
+        //     'shipments_to_store.shipped_product_id',
+        //     'shipments_to_store.store_id',
+        //     'products.name',
+        //     'stores.name AS store_name',
+        //     'products.price',
+        //     'products.weight',
+        //     'shipments_to_store.shipped_product_count'
+        // )
+        // ->paginate(15);
 
         return view('warehouses/show-warehouse', [
             'warehouse' => $getWarehouse,
             'warehouseStock' => $currentStock,
-            'recentlyMovedProducts' => $recentlyMoved
+            'id' => $id
+            // 'recentlyMovedProducts' => $recentlyMoved
         ]);
     }
 }

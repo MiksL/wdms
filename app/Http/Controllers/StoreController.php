@@ -11,10 +11,7 @@ class StoreController extends Controller
 {
     public function index(Store $store)
     {
-        $stores = $store->sortable()->paginate(15);
-        return view('Stores', [
-            'Stores' => $stores,
-        ]);
+        return view('stores');
     }
 }
 ?>
