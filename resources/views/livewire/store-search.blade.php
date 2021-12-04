@@ -1,5 +1,5 @@
 <div class="w-full grid place-items-center dark:bg-background-800">
-    @include('components.search')
+    @include('components.search', ['search' => 'store'])
     <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden sm:rounded-lg">
         <thead class="bg-gray-50 dark:bg-gray-700 text-xs uppercase h-6">
             <tr>

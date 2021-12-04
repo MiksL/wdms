@@ -1,5 +1,5 @@
 <div class="w-full grid place-items-center">
-    @include('components.search')
+    @include('components.search', ['search' => 'warehouse'])
     <div class="w-4/6 grid grid-cols-2 place-items-center gap-5 my-4 mx-4 text-gray-500 dark:text-gray-200">
         @foreach ($warehouses as $warehouse)
             <a href="{{ route('warehouses.show', $warehouse->id) }}" class="w-full border-2 border-gray-300 dark:border-gray-500 rounded-xl 

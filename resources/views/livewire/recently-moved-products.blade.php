@@ -1,5 +1,5 @@
 <div class="w-4/5 grid place-items-center dark:bg-background-800" x-cloak x-show="selectedTable === 1">
-    @include('components.search')
+    @include('components.search', ['search' => 'product'])
     <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden sm:rounded-lg">
         <thead class="bg-gray-50 dark:bg-gray-700 text-xs uppercase h-6 w-full">
             <tr>

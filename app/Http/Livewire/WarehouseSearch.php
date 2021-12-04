@@ -3,10 +3,12 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Warehouse;
 
 class WarehouseSearch extends Component
 {
+    use WithPagination;
     public $searchTerm;
 
     public function render()
