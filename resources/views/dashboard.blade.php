@@ -9,10 +9,24 @@
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Product1', 'Product2', 'Product3', 'Product4', 'Product5'],
+                    labels: 
+                    [
+                        '{{ isset($bestSellingProducts[0]) ? $bestSellingProducts[0]->name : '' }}',
+                        '{{ isset($bestSellingProducts[1]) ? $bestSellingProducts[1]->name : '' }}',
+                        '{{ isset($bestSellingProducts[2]) ? $bestSellingProducts[2]->name : '' }}',
+                        '{{ isset($bestSellingProducts[3]) ? $bestSellingProducts[3]->name : '' }}',
+                        '{{ isset($bestSellingProducts[4]) ? $bestSellingProducts[4]->name : '' }}'
+                    ],
                     datasets: [{
                         label: '# of products sold',
-                        data: [123, 19, 3, 5, 2, 3],
+                        data: 
+                        [
+                            {{ isset($bestSellingProducts[0]) ? $bestSellingProducts[0]->shipped_products : 0 }},
+                            {{ isset($bestSellingProducts[1]) ? $bestSellingProducts[1]->shipped_products : 0 }},
+                            {{ isset($bestSellingProducts[2]) ? $bestSellingProducts[2]->shipped_products : 0 }},
+                            {{ isset($bestSellingProducts[3]) ? $bestSellingProducts[3]->shipped_products : 0 }},
+                            {{ isset($bestSellingProducts[4]) ? $bestSellingProducts[4]->shipped_products : 0 }}
+                        ],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -60,22 +74,14 @@
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
-                  <tr>
-                    <td class="px-4 py-3 text-ms font-semibold">
-                        Great People's Warehouse
-                    </td>
-                    <td class="px-4 py-3 text-ms font-semibold">Great People's Product</td>
-                    <td class="px-4 py-3 text-ms font-semibold">Great People's Store</td>
-                    <td class="px-4 py-3 text-ms">1</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-3 text-ms font-semibold">
-                        Great People's Warehouse 2
-                    </td>
-                    <td class="px-4 py-3 text-ms font-semibold">Great People's Product 2</td>
-                    <td class="px-4 py-3 text-ms font-semibold">Great People's Store 2</td>
-                    <td class="px-4 py-3 text-ms">3243333</td>
-                  </tr>
+                    @foreach($recentlyMovedProducts as $product)
+                        <tr>
+                            <td class="px-4 py-3 text-ms font-semibold">{{ $product->warehouse_name }}</td>
+                            <td class="px-4 py-3 text-ms font-semibold">{{ $product->product_name }}</td>
+                            <td class="px-4 py-3 text-ms font-semibold">{{ $product->destination_store }}</td>
+                            <td class="px-4 py-3 text-ms">{{ $product->amount }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => 'auth'], function () { 
-    Route::get('/', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index'])->name('products');
     Route::get('/warehouses', [\App\Http\Controllers\WarehouseController::class, 'index'])->name('warehouses');
     Route::get('/warehouses/{id}', [\App\Http\Controllers\WarehouseController::class, 'show'])->name('warehouses.show');
