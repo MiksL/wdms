@@ -13,5 +13,25 @@ class StoreController extends Controller
     {
         return view('stores');
     }
+
+    public function create()
+    {
+        return view('stores.add-store');
+    }
+
+    public function store()
+    {
+        return view('stores.store');
+    }
+
+    public function edit()
+    {
+
+    }
+
+    public function update()
+    {
+        
+    }
 }
 ?>
