@@ -9,11 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // TODO
-
-        // Sum all the shipped products of matching IDs
-        // Take 5 of the most sold products, along with the number of products sold and their name
-        // Return products with their names to the view to pass them to graph.js function
         $bestSellingProducts = DB::table('shipments_to_store')
         ->select('products.name',DB::raw('SUM(shipments_to_store.shipped_product_count) AS shipped_products'),'shipments_to_store.shipped_product_id')
         ->join('products','shipments_to_store.shipped_product_id','=','products.id')
