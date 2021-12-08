@@ -28,7 +28,7 @@ class DashboardController extends Controller
         ->join('stores', 'shipments_to_store.store_id', '=', 'stores.id')
         ->join('warehouses', 'shipments_to_store.warehouse_id', '=', 'warehouses.id')
         ->orderBy('shipments_to_store.id', 'desc')
-        ->take(5)
+        ->take(6)
         ->select(
             'warehouses.name AS warehouse_name',
             'products.name AS product_name',
