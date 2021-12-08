@@ -5,6 +5,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Models\Store;
 
 class StoreController extends Controller
@@ -19,9 +20,14 @@ class StoreController extends Controller
         return view('stores.add-store');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        return view('stores.store');
+        $newStore = Store::create([
+            'name' => $request->name,
+            'location' => $request->location,
+            'supplying_warehouse_id' => $request->supplyingWarehouse
+        ]);
+        return view('stores');
     }
 
     public function edit()

@@ -5,6 +5,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -19,7 +20,7 @@ class ProductController extends Controller
         return view('products.add-product');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         return view('products.store');
     }
