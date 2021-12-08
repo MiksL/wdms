@@ -5,6 +5,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Models\Warehouse;
 
 class WarehouseController extends Controller
@@ -29,9 +30,12 @@ class WarehouseController extends Controller
 
     }
 
-    public function store()
+    public function store(Request $request)
     {
-
+        $newWarehouse = Warehouse::create([
+            'name' => $request->name,
+            'location' => $request->location,
+        ]);
     }
 
     public function edit()

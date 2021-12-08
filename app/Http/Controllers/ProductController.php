@@ -22,6 +22,12 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        $newProduct = Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'size' => $request->size,
+            'weight' => $request->weight
+        ]);
         return view('products.store');
     }
 
