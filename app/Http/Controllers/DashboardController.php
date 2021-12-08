@@ -17,7 +17,6 @@ class DashboardController extends Controller
         ->limit(5)
         ->get();
 
-        // Get 5 of the most recently moved products (check by highest ID), return them to the view
         $recentlyMovedProducts = DB::Table('shipments_to_store')
         ->join('products', 'shipments_to_store.shipped_product_id', '=', 'products.id')
         ->join('stores', 'shipments_to_store.store_id', '=', 'stores.id')
