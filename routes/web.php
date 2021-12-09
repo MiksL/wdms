@@ -24,13 +24,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/warehouses', [\App\Http\Controllers\WarehouseController::class, 'index'])->name('warehouses');
     Route::get('/warehouses/add-warehouse', [\App\Http\Controllers\WarehouseController::class, 'create'])->name('warehouses.add-warehouse');
     Route::post('/warehouses/add-warehouse', [\App\Http\Controllers\WarehouseController::class, 'store'])->name('warehouses.store');
-    Route::get('/warehouses/{id}', [\App\Http\Controllers\WarehouseController::class, 'show'])->name('warehouses.show');
-    Route::get('/warehouses/{id}/edit', [\App\Http\Controllers\WarehouseController::class, 'edit'])->name('warehouses.edit');
-    Route::put('/warehouses/{id}', [\App\Http\Controllers\WarehouseController::class, 'update'])->name('warehouses.update');
 
     Route::get('/stores', [\App\Http\Controllers\StoreController::class, 'index'])->name('stores');
     Route::get('/stores/add-store', [\App\Http\Controllers\StoreController::class, 'create'])->name('stores.add-store');
     Route::post('/stores/add-store', [\App\Http\Controllers\StoreController::class, 'store'])->name('stores.store');
+});
+
+Route::group(['middleware' => 'warehouse.manager.auth', 'auth'], function () { 
+    Route::get('/warehouses/{id}', [\App\Http\Controllers\WarehouseController::class, 'show'])->name('warehouses.show');
+    Route::get('/warehouses/{id}/edit', [\App\Http\Controllers\WarehouseController::class, 'edit'])->name('warehouses.edit');
+    Route::put('/warehouses/{id}', [\App\Http\Controllers\WarehouseController::class, 'update'])->name('warehouses.update');
+});
+
+Route::group(['middleware' => 'auth','store.manager.auth'], function () { 
+    Route::get('/stores/{id}', [\App\Http\Controllers\StoreController::class, 'show'])->name('stores.show');
     Route::get('/stores/{id}/edit', [\App\Http\Controllers\StoreController::class, 'edit'])->name('stores.edit');
     Route::put('/stores/{id}', [\App\Http\Controllers\StoreController::class, 'update'])->name('stores.update');
 });
