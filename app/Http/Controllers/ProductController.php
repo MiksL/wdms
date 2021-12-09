@@ -28,7 +28,7 @@ class ProductController extends Controller
             'size' => $request->size,
             'weight' => $request->weight
         ]);
-        return view('products.store');
+        return view('products');
     }
 
     public function edit()

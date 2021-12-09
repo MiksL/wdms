@@ -27,7 +27,7 @@ class WarehouseController extends Controller
 
     public function create()
     {
-
+        return view('warehouses.add-warehouse');
     }
 
     public function store(Request $request)
@@ -36,6 +36,8 @@ class WarehouseController extends Controller
             'name' => $request->name,
             'location' => $request->location,
         ]);
+
+        return view('warehouses');
     }
 
     public function edit()

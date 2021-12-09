@@ -22,9 +22,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/products/{id}', [\App\Http\Controllers\ProductController::class, 'update'])->name('products.update');
 
     Route::get('/warehouses', [\App\Http\Controllers\WarehouseController::class, 'index'])->name('warehouses');
-    Route::get('/warehouses/{id}', [\App\Http\Controllers\WarehouseController::class, 'show'])->name('warehouses.show');
     Route::get('/warehouses/add-warehouse', [\App\Http\Controllers\WarehouseController::class, 'create'])->name('warehouses.add-warehouse');
     Route::post('/warehouses/add-warehouse', [\App\Http\Controllers\WarehouseController::class, 'store'])->name('warehouses.store');
+    Route::get('/warehouses/{id}', [\App\Http\Controllers\WarehouseController::class, 'show'])->name('warehouses.show');
     Route::get('/warehouses/{id}/edit', [\App\Http\Controllers\WarehouseController::class, 'edit'])->name('warehouses.edit');
     Route::put('/warehouses/{id}', [\App\Http\Controllers\WarehouseController::class, 'update'])->name('warehouses.update');
 
