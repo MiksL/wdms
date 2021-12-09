@@ -1,3 +1,12 @@
+Simple warehouse data management system, that ties in together with stores and different products being moved mostly from the warehouses to the stores.
+
+By default all the laravel migrations are done to a database named "wdms"
+
+User registration is made using Laravel Breeze.
+Pagination uses the built-in pagination methods made available by Laravel.
+Search is made using Livewire components and their built-in support for pagination on search.
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
