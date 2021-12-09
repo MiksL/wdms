@@ -7,6 +7,9 @@
             <button class="m-4 hover:text-gray-900 dark:hover:text-gray-400" @click="selectedTable = 1">
                 Recently Moved
             </button>
+            <button class="m-4 hover:text-gray-900 dark:hover:text-gray-400" @click="selectedTable = 2">
+                Supplied Stores
+            </button>
         </div>
         @foreach($warehouse as $warehouse)
             @section('title', "$warehouse->name")
@@ -25,6 +28,13 @@
                 </div>
                 <div x-cloak x-show="selectedTable === 1" class="w-full grid place-items-center">
                     @livewire('recently-moved-products', ['warehouseid' => $warehouse->id])
+                </div>
+
+                <div x-cloak x-show="selectedTable === 2">
+                    Supplied stores by the warehouse:
+                </div>
+                <div x-cloak x-show="selectedTable === 2" class="w-full grid place-items-center">
+                    @livewire('supplied-stores', ['warehouseid' => $warehouse->id])
                 </div>
             </div>
         @endforeach
