@@ -15,6 +15,16 @@ class StoreController extends Controller
         return view('stores');
     }
 
+    public function show($id)
+    {
+        $getStore = Store::where('id', $id)->get();
+
+        return view('stores/show-store', [
+            'store' => $getStore,
+            'id' => $id
+        ]);
+    }
+
     public function create()
     {
         return view('stores.add-store');
