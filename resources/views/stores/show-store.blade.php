@@ -4,6 +4,9 @@
             <button class="m-4 hover:text-gray-900 dark:hover:text-gray-400" @click="selectedTable = 0">
             Currently Stocked
             </button>
+            <button class="m-4 hover:text-gray-900 dark:hover:text-gray-400" @click="selectedTable = 1">
+                Inbound Shipments
+            </button>
         </div>
         @foreach($store as $store)
             @section('title', "$store->name")
@@ -15,6 +18,11 @@
                 <div x-show="selectedTable === 0">Currently stocked products</div>
                 <div x-cloak x-show="selectedTable === 0" class="w-full grid place-items-center">
                     @livewire('store-product-stock', ['storeid' => $store->id])
+                </div>
+
+                <div x-cloak x-show="selectedTable === 1">Currently stocked products</div>
+                <div x-cloak x-show="selectedTable === 1" class="w-full grid place-items-center">
+                    @livewire('incoming-products-from-warehouse', ['storeid' => $store->id])
                 </div>
             </div>
         @endforeach
