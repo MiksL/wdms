@@ -12,10 +12,10 @@
         <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
             @foreach ($stores as $store)
                 <tr class="text-gray-900 dark:text-gray-300">
-                    <td class="py-1">{{ $store->id }}</td>
-                    <td class="py-1">{{ $store->name }}</td>
-                    <td class="py-1">{{ $store->location }}</td>
-                    <td class="py-1">{{ $store->supplying_warehouse }}</td>
+                    <td class="py-1"><a href="{{ route('stores.show', $store->id) }}">{{ $store->id }}</a></td>
+                    <td class="py-1"><a href="{{ route('stores.show', $store->id) }}">{{ $store->name }}</a></td>
+                    <td class="py-1"><a href="{{ route('stores.show', $store->id) }}">{{ $store->location }}</a></td>
+                    <td class="py-1"><a href="{{ route('stores.show', $store->id) }}">{{ $store->supplying_warehouse }}</a></td>
                 </tr>
             @endforeach
         </tbody>
