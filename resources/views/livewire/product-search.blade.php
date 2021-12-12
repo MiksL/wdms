@@ -45,6 +45,8 @@
         // #region Variables
         var selectedRow;
         var id;
+        var productPrice
+        var productWeight
         // #endregion
     
         // Function to edit the product
@@ -53,9 +55,11 @@
             selectedRow = $(this).closest('tr');
             $('.cancel-edit-button').val(id);
             $('.productNameInput').val(selectedRow.find('.name').text());
-            $('.productPriceInput').val(selectedRow.find('.price').text());
+            productPrice = selectedRow.find('.price').text().slice(1);
+            $('.productPriceInput').val(productPrice);
+            productWeight = selectedRow.find('.weight').text().slice(0, -3);
+            $('.productWeightInput').val(productWeight);
             $('.productSizeInput').val(selectedRow.find('.size').text());
-            $('.productWeightInput').val(selectedRow.find('.weight').text());
     
             selectedRow.addClass('bg-yellow-400 dark:bg-opacity-80');
         });
@@ -84,10 +88,10 @@
             },
             success:function() 
             {
-                $('.productNameInput').val(selectedRow.find('.name').text($('.productNameInput').val()));
-                $('.productPriceInput').val(selectedRow.find('.price').text($('.productPriceInput').val()));
-                $('.productSizeInput').val(selectedRow.find('.size').text($('.productSizeInput').val()));
-                $('.productWeightInput').val(selectedRow.find('.weight').text($('.productWeightInput').val()));
+                selectedRow.find('.name').text($('.productNameInput').val());
+                selectedRow.find('.price').text('$'+ $('.productPriceInput').val());
+                selectedRow.find('.size').text($('.productSizeInput').val());
+                selectedRow.find('.weight').text($('.productWeightInput').val()+' kg');
             },
             error:function() 
             {
