@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/warehouses', [\App\Http\Controllers\WarehouseController::class, 'index'])->name('warehouses');
     Route::get('/warehouses/add-warehouse', [\App\Http\Controllers\WarehouseController::class, 'create'])->name('warehouses.add-warehouse');
+    Route::post('/warehouses/add-shipment', [\App\Http\Controllers\WarehouseController::class, 'createShipment'])->name('warehouses.add-shipment');
     Route::post('/warehouses/add-warehouse', [\App\Http\Controllers\WarehouseController::class, 'store'])->name('warehouses.store');
 
     Route::get('/stores', [\App\Http\Controllers\StoreController::class, 'index'])->name('stores');

@@ -31,8 +31,15 @@ class RecentlyMovedProducts extends Component
         ->where('stores.name', 'like', $searchTerm)
         ->paginate(15);
 
+        $suppliedStores = DB::Table('stores')->where('supplying_warehouse_id', $this->warehouseid)->get();
+        $stockedProducts = DB::Table('warehouse_stock')->where('warehouse_id', $this->warehouseid)
+        ->join('products', 'products.id', '=', 'warehouse_stock.product_id')
+        ->get();
+
         return view('livewire.recently-moved-products', [
-            'recentlyMovedProducts' => $recentlyMoved
+            'recentlyMovedProducts' => $recentlyMoved,
+            'suppliedStores' => $suppliedStores,
+            'stockedProducts' => $stockedProducts
         ]);
     }
 }
