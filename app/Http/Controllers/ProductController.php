@@ -36,9 +36,14 @@ class ProductController extends Controller
         return view('products.edit');
     }
 
-    public function update()
+    public function update(Product $product, Request $request)
     {
-        return view('products.update');
+        $product->where('id', $request->id)->update([
+            'name' => $request->name,
+            'price' => $request->price,
+            'size' => $request->size,
+            'weight' => $request->weight
+        ]);
     }
 }
 ?>
