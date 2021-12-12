@@ -18,7 +18,8 @@ class StoreManagerCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        $storeManagers = DB::table('store_managers')->pluck('manager_id')->toArray();
+        $storeID = $request->route('id');
+        $storeManagers = DB::table('store_managers')->where('store_id', $storeID)->pluck('manager_id')->toArray();
         if(in_array(Auth::id(), $storeManagers) )
         {
             return $next($request);

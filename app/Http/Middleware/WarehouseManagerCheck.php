@@ -18,7 +18,8 @@ class WarehouseManagerCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        $warehouseManagers = DB::table('warehouse_managers')->pluck('manager_id')->toArray();
+        $warehouseID = $request->route('id');
+        $warehouseManagers = DB::table('warehouse_managers')->where('warehouse_id', $warehouseID)->pluck('manager_id')->toArray();
         if(in_array(Auth::id(), $warehouseManagers) )
         {
             return $next($request);

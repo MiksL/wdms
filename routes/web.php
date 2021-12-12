@@ -36,7 +36,7 @@ Route::group(['middleware' => 'warehouse.manager.auth', 'auth'], function () {
     Route::put('/warehouses/{id}', [\App\Http\Controllers\WarehouseController::class, 'update'])->name('warehouses.update');
 });
 
-Route::group(['middleware' => 'auth','store.manager.auth'], function () { 
+Route::group(['middleware' => 'store.manager.auth', 'auth'], function () { 
     Route::get('/stores/{id}', [\App\Http\Controllers\StoreController::class, 'show'])->name('stores.show');
     Route::get('/stores/{id}/edit', [\App\Http\Controllers\StoreController::class, 'edit'])->name('stores.edit');
     Route::put('/stores/{id}', [\App\Http\Controllers\StoreController::class, 'update'])->name('stores.update');
