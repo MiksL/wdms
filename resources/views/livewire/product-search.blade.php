@@ -45,8 +45,8 @@
         // #region Variables
         var selectedRow;
         var id;
-        var productPrice
-        var productWeight
+        var productPrice;
+        var productWeight;
         // #endregion
     
         // Function to edit the product
