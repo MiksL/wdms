@@ -20,7 +20,9 @@
                 <th class="text-gray-500 dark:text-gray-300">Price</th>
                 <th class="text-gray-500 dark:text-gray-300">Size</th>
                 <th class="text-gray-500 dark:text-gray-300">Weight</th>
-                <th class="text-gray-500 dark:text-gray-300">Action</th>
+                @if(Auth::user()->is_product_manager == 1)
+                    <th class="text-gray-500 dark:text-gray-300">Action</th>
+                @endif
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
@@ -31,9 +33,11 @@
                     <td class="price py-1">${{ $product->price }}</td>
                     <td class="size py-1">{{ $product->size }}</td>
                     <td class="weight py-1">{{ $product->weight }} kg</td>
-                    <td class="py-1">
-                        <button class="edit-product-button" @click="popup = ! popup" value="{{ $product->id }}">Edit</button>
-                    </td>
+                    @if(Auth::user()->is_product_manager == 1)
+                        <td class="py-1">
+                            <button class="edit-product-button text-base text-gray-500 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-300" @click="popup = ! popup" value="{{ $product->id }}">Edit</button>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>

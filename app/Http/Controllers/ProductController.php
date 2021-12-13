@@ -7,6 +7,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -38,12 +39,15 @@ class ProductController extends Controller
 
     public function update(Product $product, Request $request)
     {
-        $product->where('id', $request->id)->update([
-            'name' => $request->name,
-            'price' => $request->price,
-            'size' => $request->size,
-            'weight' => $request->weight
-        ]);
+        if(Auth::user()->is_product_manager == 1)
+        {
+            $product->where('id', $request->id)->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'size' => $request->size,
+                'weight' => $request->weight
+            ]);
+        }
     }
 }
 ?>
