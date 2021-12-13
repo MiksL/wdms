@@ -18,7 +18,14 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.add-product');
+        if(Auth::user()->is_admin == 1)
+        {
+            return view('products.add-product');
+        }
+        else
+        {
+            return abort(403);
+        }
     }
 
     public function store(Request $request)

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Warehouse;
 use App\Models\Warehouse_Stock;
+use Illuminate\Support\Facades\Auth;
 
 class WarehouseController extends Controller
 {
@@ -28,7 +29,14 @@ class WarehouseController extends Controller
 
     public function create()
     {
-        return view('warehouses.add-warehouse');
+        if(Auth::user()->is_admin == 1)
+        {
+            return view('warehouses.add-warehouse');
+        }
+        else
+        {
+            return abort(403);
+        }
     }
 
     public function createShipment(Request $request)

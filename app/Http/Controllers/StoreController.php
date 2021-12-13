@@ -7,6 +7,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Store;
+use Illuminate\Support\Facades\Auth;
 
 class StoreController extends Controller
 {
@@ -27,7 +28,14 @@ class StoreController extends Controller
 
     public function create()
     {
-        return view('stores.add-store');
+        if(Auth::user()->is_admin == 1)
+        {
+            return view('stores.add-store');
+        }
+        else
+        {
+            return abort(403);
+        }
     }
 
     public function store(Request $request)
