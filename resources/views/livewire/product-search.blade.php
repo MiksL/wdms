@@ -42,17 +42,17 @@
         {{ $products->links() }}
     </div>
     <script>
-        // #region Variables
+        // Initialize variables
         var selectedRow;
         var id;
         var productPrice;
         var productWeight;
-        // #endregion
     
-        // Function to edit the product
+        // Function to edit the product and set the input field values
         $(document).on('click', '.edit-product-button', function() { 
             id = $(this).val();
             selectedRow = $(this).closest('tr');
+
             $('.cancel-edit-button').val(id);
             $('.productNameInput').val(selectedRow.find('.name').text());
             productPrice = selectedRow.find('.price').text().slice(1);
@@ -75,28 +75,28 @@
             selectedRow.removeClass('bg-yellow-400 bg-opacity-70');
 
             $.ajax({
-            type: "PUT",
-            url: '/products/'+id,
-            data:
-            {
-                _token:'{{ csrf_token() }}',
-                id: id,
-                name: $('.productNameInput').val(),
-                price: $('.productPriceInput').val(),
-                size: $('.productSizeInput').val(),
-                weight: $('.productWeightInput').val()
-            },
-            success:function() 
-            {
-                selectedRow.find('.name').text($('.productNameInput').val());
-                selectedRow.find('.price').text('$'+ $('.productPriceInput').val());
-                selectedRow.find('.size').text($('.productSizeInput').val());
-                selectedRow.find('.weight').text($('.productWeightInput').val()+' kg');
-            },
-            error:function() 
-            {
-            }
-        });
+                type: "PUT",
+                url: '/products/'+id,
+                data:
+                {
+                    _token:'{{ csrf_token() }}',
+                    id: id,
+                    name: $('.productNameInput').val(),
+                    price: $('.productPriceInput').val(),
+                    size: $('.productSizeInput').val(),
+                    weight: $('.productWeightInput').val()
+                },
+                success:function() 
+                {
+                    selectedRow.find('.name').text($('.productNameInput').val());
+                    selectedRow.find('.price').text('$'+ $('.productPriceInput').val());
+                    selectedRow.find('.size').text($('.productSizeInput').val());
+                    selectedRow.find('.weight').text($('.productWeightInput').val()+' kg');
+                },
+                error:function() 
+                {
+                }
+            });
         }
     </script>
 </div>

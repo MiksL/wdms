@@ -33,7 +33,7 @@
             </div>
         </div>
     </div>
-    @include('components.search', ['search' => 'product'])
+    @include('components.search', ['search' => 'store'])
     <button @click="popup = ! popup" class="my-3 text-base text-gray-500 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-300 font-semibold text-xl leading-tight">
         Add a new Shipment
     </button>
@@ -82,6 +82,7 @@
             },
             success:function() 
             {
+                location.reload();
             },
             error:function() 
             {
