@@ -1,4 +1,4 @@
-Simple warehouse data management system, that ties in together with stores and different products being moved mostly from the warehouses to the stores.
+Simple warehouse data management system that ties in warehouses with stores and different products being moved to the stores.
 
 By default all the laravel migrations are done to a database named "wdms"
 
