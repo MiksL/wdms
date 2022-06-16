@@ -37,28 +37,28 @@
     <button @click="popup = ! popup" class="my-3 text-base text-gray-500 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-300 font-semibold text-xl leading-tight">
         Add a new Shipment
     </button>
-    <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden sm:rounded-lg">
+    <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden rounded-lg">
         <thead class="bg-gray-50 dark:bg-gray-700 text-xs uppercase h-6 w-full">
-            <tr>
-                <th class="text-gray-500 dark:text-gray-300 w-1/7">Shipment ID</th>
-                <th class="text-gray-500 dark:text-gray-300 w-1/7">Destination Store</th>
-                <th class="text-gray-500 dark:text-gray-300 w-1/7">Product ID</th>
-                <th class="text-gray-500 dark:text-gray-300 w-1/7">Product Name</th>
-                <th class="text-gray-500 dark:text-gray-300 w-1/7">Price</th>
-                <th class="text-gray-500 dark:text-gray-300 w-1/7">Weight</th>
-                <th class="text-gray-500 dark:text-gray-300 w-1/7">Amount</th>
+            <tr class="text-gray-500 dark:text-gray-300">
+                <th class="w-1/7">Shipment ID</th>
+                <th class="w-1/7">Destination Store</th>
+                <th class="w-1/7">Product ID</th>
+                <th class="w-1/7">Product Name</th>
+                <th class="w-1/7">Price</th>
+                <th class="w-1/7">Weight</th>
+                <th class="w-1/7">Amount</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
             @foreach ($recentlyMovedProducts as $product)
                 <tr class="text-gray-900 dark:text-gray-300">
                     <td class="py-1">{{ $product->id }}</td>
-                    <td class="py-1">{{ $product->store_name }}</td>
-                    <td class="py-1">{{ $product->shipped_product_id }}</td>
-                    <td class="py-1">{{ $product->name }}</td>
-                    <td class="py-1">{{ $product->price }}</td>
-                    <td class="py-1">{{ $product->weight }} kg</td>
-                    <td class="py-1">{{ $product->shipped_product_count }}</td>
+                    <td>{{ $product->store_name }}</td>
+                    <td>{{ $product->shipped_product_id }}</td>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td>{{ $product->weight }} kg</td>
+                    <td>{{ $product->shipped_product_count }}</td>
                 </tr>
             @endforeach
         </tbody>
