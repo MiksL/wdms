@@ -19,7 +19,7 @@ class WarehouseController extends Controller
 
     public function show($id)
     {
-        $getWarehouse = Warehouse::where('id', $id)->get();
+        $getWarehouse = Warehouse::where('id', $id)->first();
 
         return view('warehouses/show-warehouse', [
             'warehouse' => $getWarehouse,

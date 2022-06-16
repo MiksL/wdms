@@ -11,32 +11,30 @@
                 Supplied Stores
             </button>
         </div>
-        @foreach($warehouse as $warehouse)
-            @section('title', "$warehouse->name")
-            <div class="w-full grid place-items-center my-5 text-gray-500 dark:text-gray-300">
-                <div class="my-2 text-lg">{{ $warehouse->location }}</div>
+        @section('title', "$warehouse->name")
+        <div class="w-full grid place-items-center my-5 text-gray-500 dark:text-gray-300">
+            <div class="my-2 text-lg">{{ $warehouse->location }}</div>
+        </div>
+
+        <div class="w-full grid place-items-center text-gray-500 dark:text-gray-300">
+            <div x-show="selectedTable === 0">Currently stocked products</div>
+            <div x-cloak x-show="selectedTable === 0" class="w-full grid place-items-center">
+                @livewire('warehouse-product-stock', ['warehouseid' => $warehouse->id])
+            </div>
+            
+            <div x-cloak x-show="selectedTable === 1">
+                Recently moved products
+            </div>
+            <div x-cloak x-show="selectedTable === 1" class="w-full grid place-items-center">
+                @livewire('recently-moved-products', ['warehouseid' => $warehouse->id])
             </div>
 
-            <div class="w-full grid place-items-center text-gray-500 dark:text-gray-300">
-                <div x-show="selectedTable === 0">Currently stocked products</div>
-                <div x-cloak x-show="selectedTable === 0" class="w-full grid place-items-center">
-                    @livewire('warehouse-product-stock', ['warehouseid' => $warehouse->id])
-                </div>
-                
-                <div x-cloak x-show="selectedTable === 1">
-                    Recently moved products
-                </div>
-                <div x-cloak x-show="selectedTable === 1" class="w-full grid place-items-center">
-                    @livewire('recently-moved-products', ['warehouseid' => $warehouse->id])
-                </div>
-
-                <div x-cloak x-show="selectedTable === 2">
-                    Stores supplied by the warehouse:
-                </div>
-                <div x-cloak x-show="selectedTable === 2" class="w-full grid place-items-center">
-                    @livewire('supplied-stores', ['warehouseid' => $warehouse->id])
-                </div>
+            <div x-cloak x-show="selectedTable === 2">
+                Stores supplied by the warehouse:
             </div>
-        @endforeach
+            <div x-cloak x-show="selectedTable === 2" class="w-full grid place-items-center">
+                @livewire('supplied-stores', ['warehouseid' => $warehouse->id])
+            </div>
+        </div>
     </div>
 </x-app-layout>
