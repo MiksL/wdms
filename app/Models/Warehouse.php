@@ -14,7 +14,11 @@ class Warehouse extends Model
         'name',
         'location'
     ];
-    
+
+    public function stores()
+    {
+        return $this->hasMany(Store::class, 'supplying_warehouse_id');
+    }
 }
 
 

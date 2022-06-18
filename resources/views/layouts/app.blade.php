@@ -24,7 +24,7 @@
 
         @livewireStyles
     </head>
-    <body class="font-sans antialiased dark:text-gray-200">
+    <body class="font-sans antialiased text-gray-900 dark:text-gray-300">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-800">
             @if(Auth::check())
                 @include('layouts.navigation')

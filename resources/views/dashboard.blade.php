@@ -1,8 +1,8 @@
 @section('title', 'Dashboard')
 <x-app-layout>
     <div class="flex flex-wrap overflow-hidden">
-        <div id="MostProductsSold" class="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-1 md:px-1 md:w-1/2 lg:my-3 lg:px-3 lg:w-1/2 xl:my-3 xl:px-3 xl:w-1/2">
-            <h2 class="w-full text-center text-lg dark:text-gray-300 mb-1">Best-selling products</h2>
+        <div id="MostProductsSold" class="w-full overflow-hidden my-1 px-1 lg:my-3 lg:px-3 lg:w-1/2">
+            <h2 class="w-full text-center text-lg mb-1">Best-selling products</h2>
             <canvas id="bestSellingProducts"></canvas>
             <script>
             var ctx = document.getElementById('bestSellingProducts').getContext('2d');
@@ -62,43 +62,43 @@
             </script>
         </div>
       
-        <div id="recentlyMovedProducts" class="w-full overflow-y-auto sm:my-1 sm:px-1 sm:w-1/2 md:my-1 md:px-1 md:w-1/2 lg:my-3 lg:px-3 lg:w-1/2 xl:my-3 xl:px-3 xl:w-1/2">
-            <h2 class="w-full text-center text-lg dark:text-gray-300 mb-1">Recently moved products</h2>
-            <table class="w-full divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden sm:rounded-lg">
+        <div id="recentlyMovedProducts" class="w-full overflow-hidden my-1 px-1 lg:my-3 lg:px-3 lg:w-1/2">
+            <h2 class="w-full text-center text-lg mb-1">Recently moved products</h2>
+            <table class="w-full divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden rounded-lg">
                 <thead class="bg-gray-50 dark:bg-gray-700">
-                  <tr class="text-md font-semibold tracking-wide text-left text-gray-900 uppercase border-b border-gray-600">
-                    <th class="px-4 py-3 dark:text-gray-300">Warehouse</th>
-                    <th class="px-4 py-3 dark:text-gray-300">Product</th>
-                    <th class="px-4 py-3 dark:text-gray-300">Destination Store</th>
-                    <th class="px-4 py-3 dark:text-gray-300">Amount</th>
-                  </tr>
+                    <tr class="text-xs md:text-base font-semibold tracking-wide text-left uppercase border-b border-gray-600">
+                        <th class="px-4 py-3">Warehouse</th>
+                        <th class="px-4 py-3">Product</th>
+                        <th class="px-4 py-3">Destination Store</th>
+                        <th class="px-4 py-3">Amount</th>
+                    </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
                     @foreach($recentlyMovedProducts as $product)
-                        <tr>
-                            <td class="px-4 py-3 text-ms font-semibold">{{ $product->warehouse_name }}</td>
-                            <td class="px-4 py-3 text-ms font-semibold">{{ $product->product_name }}</td>
-                            <td class="px-4 py-3 text-ms font-semibold">{{ $product->destination_store }}</td>
-                            <td class="px-4 py-3 text-ms">{{ $product->amount }}</td>
+                        <tr class="text-ms">
+                            <td class="px-4 py-3 font-semibold">{{ $product->warehouse_name }}</td>
+                            <td class="px-4 py-3 font-semibold">{{ $product->product_name }}</td>
+                            <td class="px-4 py-3 font-semibold">{{ $product->destination_store }}</td>
+                            <td class="px-4 py-3">{{ $product->amount }}</td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
       
-        <div class="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-1 md:px-1 md:w-1/2 lg:my-3 lg:px-3 lg:w-1/2 xl:my-3 xl:px-3 xl:w-1/2">
+        <div class="w-full overflow-hidden my-1 px-1 lg:my-3 lg:px-3 lg:w-1/2">
 
         </div>
       
-        <div class="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-1 md:px-1 md:w-1/2 lg:my-3 lg:px-3 lg:w-1/2 xl:my-3 xl:px-3 xl:w-1/2">
+        <div class="w-full overflow-hidden my-1 px-1 lg:my-3 lg:px-3 lg:w-1/2">
 
         </div>
       
-        <div class="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-1 md:px-1 md:w-1/2 lg:my-3 lg:px-3 lg:w-1/2 xl:my-3 xl:px-3 xl:w-1/2">
+        <div class="w-full overflow-hidden my-1 px-1 lg:my-3 lg:px-3 lg:w-1/2">
 
         </div>
       
-        <div class="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-1 md:px-1 md:w-1/2 lg:my-3 lg:px-3 lg:w-1/2 xl:my-3 xl:px-3 xl:w-1/2">
+        <div class="w-full overflow-hidden my-1 px-1 lg:my-3 lg:px-3 lg:w-1/2">
 
         </div>
 </x-app-layout>

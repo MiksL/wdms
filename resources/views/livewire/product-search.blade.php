@@ -1,27 +1,27 @@
 <div class="w-full grid place-items-center dark:bg-background-800" x-data="{ popup: false }">
     <div x-cloak x-show="popup" class="absolute z-15 w-80 grid place-items-center inset-0 overflow-y-auto h-full w-full bg-gray-500 dark:bg-gray-700 bg-opacity-75 dark:bg-opacity-75">
-        <div class="grid place-items-center w-1/5 bg-gray-100 dark:bg-gray-800 bg-opacity-90 rounded-xl py-5">
-            <input type="text" class="productNameInput mt-3 w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 text-gray-500 dark:text-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Name"/>
-            <input type="text" class="productPriceInput mt-3 w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 text-gray-500 dark:text-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Price"/>
-            <input type="text" class="productSizeInput mt-3 w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 text-gray-500 dark:text-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Size"/>
-            <input type="text" class="productWeightInput my-3 w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 text-gray-500 dark:text-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Weight"/>
-            <div>
-                <button @click="popup = ! popup" class="cancel-edit-button my-2 mr-2 text-base text-gray-500 dark:text-gray-200 hover:text-red-500 dark:hover:text-red-300 font-semibold text-xl leading-tight">Cancel</button>
-                <button @click="popup = ! popup; editProduct()" class="save-changes-button my-2 ml-2 text-base text-gray-500 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-300 font-semibold text-xl leading-tight">Save</button>
+        <div class="grid place-items-center w-1/5 space-y-3 text-gray-500 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 bg-opacity-90 rounded-xl py-5">
+            <input type="text" class="productNameInput w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Name"/>
+            <input type="text" class="productPriceInput w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Price"/>
+            <input type="text" class="productSizeInput w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Size"/>
+            <input type="text" class="productWeightInput mb-3 w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Weight"/>
+            <div class="text-xl space-x-4 space-y-2 text-gray-500 dark:text-gray-200 font-semibold">
+                <button @click="popup = ! popup" class="cancel-edit-button hover:text-red-500 dark:hover:text-red-300 leading-tight">Cancel</button>
+                <button @click="popup = ! popup; editProduct()" class="save-changes-button hover:text-green-500 dark:hover:text-green-300 leading-tight">Save</button>
             </div>
         </div>
     </div>
     @include('components.search', ['search' => 'product'])
-    <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden sm:rounded-lg">
+    <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden rounded-lg">
         <thead class="bg-gray-50 dark:bg-gray-700 text-xs uppercase h-6">
-            <tr>
-                <th class="text-gray-500 dark:text-gray-300">ID</th>
-                <th class="text-gray-500 dark:text-gray-300">Name</th>
-                <th class="text-gray-500 dark:text-gray-300">Price</th>
-                <th class="text-gray-500 dark:text-gray-300">Size</th>
-                <th class="text-gray-500 dark:text-gray-300">Weight</th>
+            <tr class="text-gray-500 dark:text-gray-300">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Size</th>
+                <th>Weight</th>
                 @if(Auth::user()->is_product_manager == 1)
-                    <th class="text-gray-500 dark:text-gray-300">Action</th>
+                    <th>Action</th>
                 @endif
             </tr>
         </thead>
