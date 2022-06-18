@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Store;
+use App\Models\Warehouse;
 
 class SuppliedStores extends Component
 {
@@ -15,8 +15,9 @@ class SuppliedStores extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm.'%';
-        $suppliedStores = Store::where('supplying_warehouse_id', $this->warehouseid)
-        ->where('name', 'like', $searchTerm)->paginate(10);
+        $suppliedStores = Warehouse::find($this->warehouseid)->stores()
+        ->where('name', 'like', $searchTerm)
+        ->paginate(10);
 
         return view('livewire.supplied-stores', [
             'stores' => $suppliedStores,

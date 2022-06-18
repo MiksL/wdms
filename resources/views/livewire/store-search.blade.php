@@ -15,7 +15,7 @@
                     <td class="py-1"><a href="{{ route('stores.show', $store->id) }}">{{ $store->id }}</a></td>
                     <td class="py-1"><a href="{{ route('stores.show', $store->id) }}">{{ $store->name }}</a></td>
                     <td class="py-1"><a href="{{ route('stores.show', $store->id) }}">{{ $store->location }}</a></td>
-                    <td class="py-1"><a href="{{ route('stores.show', $store->id) }}">{{ $store->supplying_warehouse }}</a></td>
+                    <td class="py-1"><a href="{{ route('stores.show', $store->id) }}">{{ $store->warehouse->name }}</a></td>
                 </tr>
             @endforeach
         </tbody>

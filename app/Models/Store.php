@@ -18,6 +18,11 @@ class Store extends Model
     ];
     
     public $sortable = ['id','name','location', 'supplying_warehouse_id'];
+
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class, 'supplying_warehouse_id');
+    }
 }
 
 
