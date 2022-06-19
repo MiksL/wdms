@@ -15,7 +15,17 @@ class Product extends Model
         'size',
         'weight'
     ];
-    
+
+    public function stores()
+    {
+        return $this->belongsToMany(Store::class, 'store_stock');
+    }
+
+    public function warehouses()
+    {
+        return $this->belongsToMany(Warehouse::class, 'warehouse_stock');
+    }
+
 }
 
 

@@ -23,6 +23,16 @@ class Store extends Model
     {
         return $this->belongsTo(Warehouse::class, 'supplying_warehouse_id');
     }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'store_stock');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'store_managers');
+    }
 }
 
 
