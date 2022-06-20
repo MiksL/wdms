@@ -14,7 +14,9 @@ class ProductSearch extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm.'%';
-        $products = Product::where('name', 'like', $searchTerm)->paginate(15);
+        $products = Product::where('name', 'like', $searchTerm)
+        ->orWhere('id', 'like', $searchTerm)
+        ->paginate(15);
         return view('livewire.product-search', [
             'products' => $products,
         ]);

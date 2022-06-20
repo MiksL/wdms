@@ -14,7 +14,9 @@ class WarehouseSearch extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm.'%';
-        $warehouses = Warehouse::where('name', 'like', $searchTerm)->paginate(10);
+        $warehouses = Warehouse::where('name', 'like', $searchTerm)
+        ->orWhere('id', 'like', $searchTerm)
+        ->paginate(10);
         return view('livewire.warehouse-search', [
             'warehouses' => $warehouses,
         ]);

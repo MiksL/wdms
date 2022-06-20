@@ -15,6 +15,7 @@ class StoreSearch extends Component
     {
         $searchTerm = '%'.$this->searchTerm.'%';
         $stores = Store::where('stores.name', 'like', $searchTerm)
+        ->orWhere('id', 'like', $searchTerm)
         ->paginate(15);
 
         return view('livewire.store-search', [

@@ -27,6 +27,7 @@ class IncomingProductsFromWarehouse extends Component
             'shipments_to_store.shipped_product_count'
         )
         ->where('products.name', 'like', $searchTerm)
+        ->orWhere('products.id', 'like', $searchTerm)
         ->paginate(15);
 
         return view('livewire.incoming-products-from-warehouse', [
