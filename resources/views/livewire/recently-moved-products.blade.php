@@ -14,7 +14,7 @@
         -moz-appearance: textfield;
         }
     </style>
-    <div x-cloak x-show="popup" class="absolute z-15 w-80 grid place-items-center inset-0 overflow-y-auto h-full w-full bg-gray-500 dark:bg-gray-700 bg-opacity-75 dark:bg-opacity-75">
+    <div x-cloak x-show="popup" class="absolute z-15 grid place-items-center inset-0 overflow-y-auto h-full w-full bg-gray-500 dark:bg-gray-700 bg-opacity-75 dark:bg-opacity-75">
         <div class="grid place-items-center w-1/5 bg-gray-100 dark:bg-gray-800 bg-opacity-90 rounded-xl py-5">
             <select type="text" class="destinationStoreInput mt-3 w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 text-gray-500 dark:text-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Destination Store">
                 @foreach($suppliedStores as $suppliedStore)
@@ -28,13 +28,13 @@
             </select>
             <input type="number" min="1" max="" class="shippedProductAmountInput mt-3 w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 text-gray-500 dark:text-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Shipment Amount"/>
             <div>
-                <button @click="popup = ! popup" class="my-2 mr-2 text-base text-gray-500 dark:text-gray-200 hover:text-red-500 dark:hover:text-red-300 font-semibold text-xl leading-tight">Cancel</button>
-                <button @click="popup = ! popup; addShipment()" class="save-changes-button my-2 ml-2 text-base text-gray-500 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-300 font-semibold text-xl leading-tight">Add</button>
+                <button @click="popup = ! popup" class="my-2 mr-2 text-gray-500 dark:text-gray-200 hover:text-red-500 dark:hover:text-red-300 font-semibold text-xl leading-tight">Cancel</button>
+                <button @click="popup = ! popup; addShipment()" class="save-changes-button my-2 ml-2 text-gray-500 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-300 font-semibold text-xl leading-tight">Add</button>
             </div>
         </div>
     </div>
     @include('components.search', ['search' => 'store'])
-    <button @click="popup = ! popup" class="my-3 text-base text-gray-500 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-300 font-semibold text-xl leading-tight">
+    <button @click="popup = ! popup" class="my-3 text-gray-500 dark:text-gray-200 hover:text-green-500 dark:hover:text-green-300 font-semibold text-xl leading-tight">
         Add a new Shipment
     </button>
     <table class="mt-4 w-10/12 text-center divide-y divide-gray-200 dark:divide-gray-600 shadow overflow-hidden rounded-lg">

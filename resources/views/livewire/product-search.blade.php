@@ -1,5 +1,5 @@
 <div class="w-full grid place-items-center dark:bg-background-800" x-data="{ popup: false }">
-    <div x-cloak x-show="popup" class="absolute z-15 w-80 grid place-items-center inset-0 overflow-y-auto h-full w-full bg-gray-500 dark:bg-gray-700 bg-opacity-75 dark:bg-opacity-75">
+    <div x-cloak x-show="popup" class="absolute z-15 grid place-items-center inset-0 overflow-y-auto h-full w-full bg-gray-500 dark:bg-gray-700 bg-opacity-75 dark:bg-opacity-75">
         <div class="grid place-items-center w-1/5 space-y-3 text-gray-500 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 bg-opacity-90 rounded-xl py-5">
             <input type="text" class="productNameInput w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Name"/>
             <input type="text" class="productPriceInput w-3/5 rounded-xl bg-gray-50 dark:bg-gray-700 border-gray-500 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Product Price"/>
