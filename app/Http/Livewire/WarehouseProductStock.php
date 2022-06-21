@@ -18,7 +18,7 @@ class WarehouseProductStock extends Component
         $currentStock = DB::Table('warehouse_stock')->where('warehouse_id', $this->warehouseid)
         ->join('products', 'warehouse_stock.product_id', '=', 'products.id')
         ->where('name', 'like', $searchTerm)
-        ->orWhere('id', 'like', $searchTerm)
+        ->orWhere('products.id', 'like', $searchTerm)
         ->paginate(15);
 
         return view('livewire.warehouse-product-stock', [
