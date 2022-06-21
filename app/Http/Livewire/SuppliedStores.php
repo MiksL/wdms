@@ -16,8 +16,8 @@ class SuppliedStores extends Component
     {
         $searchTerm = '%'.$this->searchTerm.'%';
         $suppliedStores = Warehouse::find($this->warehouseid)->stores()
-        ->where('name', 'like', $searchTerm)
-        ->orWhere('id', 'like', $searchTerm)
+        ->where('stores.name', 'like', $searchTerm)
+        ->orWhere('stores.id', 'like', $searchTerm)
         ->paginate(10);
 
         return view('livewire.supplied-stores', [
