@@ -8,6 +8,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Store extends Model
 {
+    use HasFactory;
     use Sortable;
     
     protected $fillable = [
