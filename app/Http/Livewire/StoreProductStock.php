@@ -18,7 +18,7 @@ class StoreProductStock extends Component
         $currentStock = DB::Table('store_stock')->where('store_id', $this->storeid)
         ->join('products', 'store_stock.product_id', '=', 'products.id')
         ->where('name', 'like', $searchTerm)
-        ->orWhere('id', 'like', $searchTerm)
+        ->orWhere('products.id', 'like', $searchTerm)
         ->paginate(15);
 
         return view('livewire.store-product-stock', [
